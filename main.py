@@ -1,6 +1,6 @@
 #Dimitry Maizik | Oct, 10, 2019
 import random
-fonts = ["Arial", "Helvetica", "sans-serif", "Gadget", "cursive", "Impact", "Charcoal", "Tahoma", "Geneva", "Verdana", "\"Courier New\"", "\"Lucida Console\"", "\"Trebuchet MS\"", "\"Lucida Sans Unicode\"", "\"Lucida Grande\"", "\"Comic Sans\""]
+fonts = ["\"Agency FB\"", "Albertina", "Antiqua", "Archetect", "Arial", "BankFuturistic", "BankGothic", "Blackletter", "Blagovest", "Calibri", "\"Comic Sans MS\"", "Consolas", "Courier", "Cursive", "Decorative", "Fantasy", "Fraktur", "Frosty", "Garamond", "Geogia", "Helvetica", "Impact", "Minion", "Monospace", "Perpetua", "Roman", "Sans-serif", "Serif", "Script", "Swiss", "Times", "\"Times New Roman\"", "Verdana"]
 hexdict = ["1", "2", "3", "4", "5", "6", "7", "8", "9","A", "B", "C", "D", "E", "F"]
 START_WIDTH = 8 #Smallest width in px to start the media queries
 END_WIDTH = 1920 #Largest width in px to end media querying
@@ -14,7 +14,7 @@ def generate_colorcode():
 
 def generate_font():
     returnfont = ""
-    returnfont = fonts[random.randint(0, 15)]
+    returnfont = fonts[random.randint(0, 32)]
     return returnfont
 
 f_append = ""
