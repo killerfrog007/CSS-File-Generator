@@ -20,6 +20,7 @@ def generate_font():
 
 f_append = ""
 i = START_WIDTH
+f = open("style.css", "w") #opens style.css file
 while i <= END_WIDTH:
     j = START_HEIGHT
     while j <= END_HEIGHT:
@@ -28,9 +29,8 @@ while i <= END_WIDTH:
 
         j = j+1
         f_append = f_append + css
+    f.write(f_append) #dumps and empties variable
+    f_append = "" 
     i = i+1
 
 
-#print(f_append)
-f = open("style.css", "w")
-f.write(f_append)
