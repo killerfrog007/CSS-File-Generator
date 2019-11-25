@@ -2,9 +2,10 @@
 import random
 fonts = ["\"Agency FB\"", "Albertina", "Antiqua", "Archetect", "Arial", "BankFuturistic", "BankGothic", "Blackletter", "Blagovest", "Calibri", "\"Comic Sans MS\"", "Consolas", "Courier", "Cursive", "Decorative", "Fantasy", "Fraktur", "Frosty", "Garamond", "Geogia", "Helvetica", "Impact", "Minion", "Monospace", "Perpetua", "Roman", "Sans-serif", "Serif", "Script", "Swiss", "Times", "\"Times New Roman\"", "Verdana"]
 hexdict = ["1", "2", "3", "4", "5", "6", "7", "8", "9","A", "B", "C", "D", "E", "F"]
-START_WIDTH = 8 #Smallest width in px to start the media queries
+START_WIDTH = 300 #Smallest width in px to start the media queries
 END_WIDTH = 1920 #Largest width in px to end media querying
-
+START_HEIGHT  = 300 #Smallest height in px to start the media queries
+END_HEIGHT = 1920 #Largest height in px to start the media queries
 
 def generate_colorcode():
     hexdigit = "#"
@@ -19,14 +20,17 @@ def generate_font():
 
 f_append = ""
 i = START_WIDTH
+f = open("style.css", "w") #opens style.css file
 while i <= END_WIDTH:
-    print("Generating @Media for " + str(i) +" Px")
-    css = "@media screen and (min-width: "+str(i)+ "px) {h1 { font-family: " +str(generate_font()) + ";  background-color: " + str(generate_colorcode()) + ";  color: " + str(generate_colorcode()) + "; } h2 {  font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + ";  color: " + str(generate_colorcode()) + ";} h3 { font-family: " +str(generate_font()) + ";  background-color: " + str(generate_colorcode()) + ";  color: " + str(generate_colorcode()) + "; } h4{ font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}h5{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}h6{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}p{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}hr{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}a{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}ul{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}ol{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}li{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}img{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}div{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}span{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}}" 
+    j = START_HEIGHT
+    while j <= END_HEIGHT:
+        print("Generating @Media for " + str(i) + " Px " + str(j) + " Px")
+        css = "@media screen and (min-width: " + str(i) + "px), screen and (min-height: " + str(j) + "px) {h1 { font-family: " +str(generate_font()) + ";  background-color: " + str(generate_colorcode()) + ";  color: " + str(generate_colorcode()) + "; } h2 {  font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + ";  color: " + str(generate_colorcode()) + ";} h3 { font-family: " +str(generate_font()) + ";  background-color: " + str(generate_colorcode()) + ";  color: " + str(generate_colorcode()) + "; } h4{ font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}h5{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}h6{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}p{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}hr{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}a{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}ul{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}ol{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}li{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}img{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}div{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}span{font-family: " +str(generate_font()) + "; background-color: " + str(generate_colorcode()) + "; color: " + str(generate_colorcode()) + ";}}" 
 
-    f_append = f_append + css
+        j = j+1
+        f_append = f_append + css
+    f.write(f_append) #dumps and empties variable
+    f_append = "" 
     i = i+1
 
 
-#print(f_append)
-f = open("style.css", "w")
-f.write(f_append)
